@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admission Form - School Management System</title>
+    <style>
+      body {
+        font-family: "Poppins", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url(logo.jpeg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+        width: 400px;
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      h1 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin: 15px 0;
+        text-align: left;
+      }
+
+      label {
+        font-weight: bold;
+        color: #555;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="date"],
+      select {
+        width: 100%;
+        padding: 12px;
+        margin: 5px 0;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="tel"]:focus,
+      input[type="date"]:focus,
+      select:focus {
+        border-color: #74ebd5;
+        box-shadow: 0 0 8px rgba(116, 235, 213, 0.5);
+      }
+
+      button {
+        background-color: #6c63ff;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #574bfa;
+      }
+
+      footer {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #777;
+      }
+
+      footer a {
+        color: #6c63ff;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+
+    
+    <div class="container">
+      <h1>Admission Form</h1>
+      <p>Fill out the form below to apply for admission.</p>
+
+      <form id="admissionForm">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Enter your full name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter your phone number"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input
+            type="date"
+            id="dob"
+            name="dob"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="grade">Grade Applying For</label>
+          <select id="grade" name="grade" required>
+            <option value="">Select Grade</option>
+            <option value="Grade 1">Grade 1</option>
+            <option value="Grade 2">Grade 2</option>
+            <option value="Grade 3">Grade 3</option>
+            <option value="Grade 4">Grade 4</option>
+            <option value="Grade 5">Grade 5</option>
+            
+          </select>
+        </div>
+
+        <button type="submit">Submit Admission</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("admissionForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const fullName = document.getElementById("fullName").value;
+          const email = document.getElementById("email").value;
+          const phone = document.getElementById("phone").value;
+          const dob = document.getElementById("dob").value;
+          const grade = document.getElementById("grade").value;
+
+          if (fullName && email && phone && dob && grade) {
+            alert("Admission form submitted successfully!");
+            
+            localStorage.setItem("admissionFullName", fullName);
+            localStorage.setItem("admissionEmail", email);
+            localStorage.setItem("admissionPhone", phone);
+            localStorage.setItem("admissionDob", dob);
+            localStorage.setItem("admissionGrade", grade);
+            window.location.href = "dashboard.html";
+
+            
+          } else {
+            alert("Please fill all the required fields.");
+          }
+        });
+    </script>
+  </body>
+</html>

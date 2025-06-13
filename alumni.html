@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Management System</title>
+    <style>
+      body {
+        font-family: "Roboto", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url(alumi1.jpeg);
+        color: #333;
+      }
+
+      .navbar {
+        background-color: #444;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1rem;
+      }
+
+      .navbar a:hover {
+        text-decoration: underline;
+      }
+
+      .navbar .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .navbar .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .navbar .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .navbar .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      .navbar .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+
+      .container {
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        max-width: 900px;
+        margin: 70px auto;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: #444;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #777;
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      .alumni-card {
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .alumni-card .card {
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .alumni-card .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .alumni-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .alumni-card .card-body {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .alumni-card .card-title {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .alumni-card .card-text {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      .alumni-card .achievements {
+        font-size: 0.9rem;
+        color: #007bff;
+        font-style: italic;
+      }
+
+      @media (max-width: 768px) {
+        .alumni-card {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .alumni-card .card {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="navbar">
+      <div>
+        <a href="dashboard.html">Home</a>
+        <a href="admission.html">Admissions</a>
+        <a href="alumi.html">Alumni</a>
+        <div class="dropdown">
+          <a href="#">Achievements &#9662;</a>
+          <div class="dropdown-content">
+            <a href="achievement1.html">Achievement 1</a>
+            <a href="achievement2.html">Achievement 2</a>
+            <a href="achievement3.html">Achievement 3</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <h1>Alumni Achievements</h1>
+      <p>Celebrating the success of our talented alumni</p>
+
+      <div class="alumni-card">
+        <div class="card">
+          <img
+            src="data:image/jpeg;base64,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" class="YQ4gaf" height="244" style="object-position:47% 16%" width="207" alt="SOA | SIKSHA 'O' ANUSANDHAN" data-csiid="BC9oZ5DiEI-Ovr0Pu7jPwAo_11" data-atf="1">"
+       
+          <div class="card-body">
+            <h5 class="card-title">Sonam Das</h5>
+            <p class="card-text">
+                Sonam Das, an alumni of the School of Hotel Management (SHM), faculty of hospitality and tourism management of Siksha ‘O’ Anusandhan Deemed to be University (SOA) here and presently positioned as Housekeeping Manager at Kempinski Hotel Mall of Emirates, Dubai, has been chosen as one of the outstanding leaders in the hospitality industry in the Middle East for 2024.
+            </p>
+            <p class="achievements">
+              Achievements: positioned as Housekeeping Manager at Kempinski Hotel Mall of Emirates
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/57713a8e2994cae381dd86fe/1670455023740-I476G8T841JEDYPS9G8K/DAMAN+1.JPG" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 2500px; height: 202px; margin: 0px; width: 135px;" alt="SOA felicitates its alumni and DAMaN Actor Dipanwit Dashmohapatra — SOA |  SIKSHA 'O' ANUSANDHAN" jsname="kn3ccd" aria-hidden="false">"
+          <div class="card-body">
+            <h5 class="card-title">Dipanwit Dashmohapatra</h5>
+            <p class="card-text">
+                Dipanwit Dashmohapatra, a former SOA student who played a lead role in the Odia movie ‘DAMaN’ presently making waves, was felicitated by SOA Vice-Chancellor Prof. Ashok Kumar Mahapatra at the university on Tuesday for his portrayal in the film with a social message. 
+
+                The biographical social drama, which featured eminent Odia film actor Babushaan Mohanty, depicted the relentless battle of a doctor and his pharmacist colleague against superstition and malaria in an inaccessible tribal pocket in a remote district of Odisha prompting the state government to exempt the film from tax.
+                
+                Dashmohapatra, who played the role of the pharmacist, studied electrical engineering at the Institute of Technical Education and Research (ITER), faculty of engineering of SOA, and passed out in 2017. He had been drawn to acting since his college days and worked with prominent theatre groups including ITER's Dramatic Club ‘Toneelstuk’ and ‘Uttar Purush Theatre Group’. He is also an active member of ‘Jeevan Rekha Theatre Group’ of Bhubaneswar.
+            </p>
+            <p class="achievements">
+            <p class="card-text">
+                Achievements: who played a lead role in the Odia movie ‘DAMaN’ presently making waves, 
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src=//media.assettype.com/edexlive%2Fimport%2F2023%2F2%2F22%2Foriginal%2Fphoto_3.jpg?w=480&amp;auto=format%2Ccompress&amp;fit=max" srcset="//media.assettype.com/edexlive%2Fimport%2F2023%2F2%2F22%2Foriginal%2Fphoto_3.jpg?w=480&amp;auto=format%2Ccompress&amp;fit=max 480w,//media.assettype.com/edexlive%2Fimport%2F2023%2F2%2F22%2Foriginal%2Fphoto_3.jpg?w=640&amp;auto=format%2Ccompress&amp;fit=max 640w,//media.assettype.com/edexlive%2Fimport%2F2023%2F2%2F22%2Foriginal%2Fphoto_3.jpg?w=768&amp;auto=format%2Ccompress&amp;fit=max 768w,//media.assettype.com/edexlive%2Fimport%2F2023%2F2%2F22%2Foriginal%2Fphoto_3.jpg?w=1024&amp;auto=format%2Ccompress&amp;fit=max 1024w" sizes="(max-width: 768px) 100vw, 50vw" fetchpriority="high" alt="Authors handing over their books | (Pic: SOA)" class="qt-image arr-image-placeholder">
+          
+          <div class="card-body">
+            <h5 class="card-title"> Parag Ray</h5>
+            <p class="card-text">
+              
+                He was alumni of Siksha ‘O’ Anusandhan (SOA) have authored books to help graduates navigate through the professional world and find their feet in a highly competitive environment.
+            </p>
+            <p class="achievements">
+              Achievements: Parag Ray have passed out from the Institute of Technical Education and Research (ITER), the faculty of Engineering and Technology of SOA, about a decade ago
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

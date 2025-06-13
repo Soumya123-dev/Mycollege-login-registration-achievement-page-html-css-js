@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - School Management System</title>
+    <style>
+      body {
+        font-family: "Poppins", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url(soa.jpeg);
+        background-size: cover;  
+        background-position: center; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.9);  
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+        width: 400px;
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      h1 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin: 15px 0;
+        text-align: left;
+      }
+
+      label {
+        font-weight: bold;
+        color: #555;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        margin: 5px 0;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        border-color: #74ebd5;
+        box-shadow: 0 0 8px rgba(116, 235, 213, 0.5);
+      }
+
+      button {
+        background-color: #6c63ff;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #574bfa;
+      }
+
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+
+      footer {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #777;
+      }
+
+      footer a {
+        color: #6c63ff;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Register for the School Management System</h1>
+      <p>Create your account to access the portal.</p>
+
+      <form id="registrationForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+          <div id="passwordError" class="error"></div>
+        </div>
+
+        <button type="submit">Register</button>
+      </form>
+
+      <footer>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+      </footer>
+    </div>
+
+    <script>
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          const passwordError = document.getElementById("passwordError");
+
+          const uppercaseRegex = /[A-Z]/;
+          const lowercaseRegex = /[a-z]/;
+          const digitRegex = /\d/;
+
+          if (
+            !uppercaseRegex.test(password) ||
+            !lowercaseRegex.test(password) ||
+            !digitRegex.test(password)
+          ) {
+            passwordError.textContent =
+              "Password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 digit.";
+          } else {
+            passwordError.textContent = "";
+            
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+
+            alert("Registration successful! Redirecting to login page...");
+            window.location.href = "login.html"; 
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Achievements</title>
+    <style>
+      body {
+        font-family: "Roboto", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #cb7711, #25fc33);
+        color: #333;
+    
+      }
+
+      .navbar {
+        background-color: #444;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1rem;
+      }
+
+      .navbar a:hover {
+        text-decoration: underline;
+      }
+
+      .navbar .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .navbar .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .navbar .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .navbar .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      .navbar .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 70px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #444;
+      }
+
+      .achievement-card {
+        background: #f9f9f9;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        max-width: 400px;
+      }
+
+      .achievement-card img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+
+      .achievement-card h2 {
+        font-size: 1.8rem;
+        color: #6a11cb;
+        margin: 10px 0;
+      }
+
+      .achievement-card p {
+        font-size: 1rem;
+        color: #777;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div>
+        <a href="dashboard.html">Home</a>
+        <a href="#">Admissions</a>
+        <a href="alumi.html">Alumni</a>
+        <div class="dropdown">
+          <a href="#">Achievements &#9662;</a>
+          <div class="dropdown-content">
+            <a href="#">Achievement 1</a>
+            <a href="achievement2.html">Achievement 2</a>
+            <a href="achievement3.html">Achievement 3</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Achievement 1</h1>
+
+      <div class="achievement-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_zPF2zDdFP_wRYb9pAgEV4RM2nhaaKKk1DA&amp;s" class="sFlh5c FyHeAf" alt="S'O'A University Sports Wing" jsname="JuXqh" style="max-width: 1280px; width: 351px; height: 234px; margin: 0px;" data-ilt="1734883606874">
+        <audio controls>
+            <source src="audio.mp3.mp3">
+        </audio>
+        <h2>Sports Competition</h2>
+        <p>
+          Our students excelled in the inter college sports competition, securing top
+          positions among thousands of participants.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

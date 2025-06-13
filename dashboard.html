@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard-School Management System</title>
+    <style>
+      body {
+        font-family: 'Roboto', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image:url(soa1.jpeg);
+        color: #333;
+      }
+
+      .navbar {
+        background-color: #444;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1rem;
+      }
+
+      .navbar a:hover {
+        text-decoration: underline;
+      }
+
+      .navbar .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .navbar .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .navbar .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .navbar .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      .navbar .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .container {
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        max-width: 900px;
+        margin: 70px auto;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: #444;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #777;
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      #searchBar {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: center;
+        font-size: 0.95rem;
+      }
+
+      th {
+        background-color: #65cbd6;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f4f4f4;
+      }
+
+      tr:nth-child(odd) {
+        background-color: #ffffff;
+      }
+
+      tr:hover {
+        background-color: #e0f7fa;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-edit {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      .btn-edit:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+      }
+
+      .btn-delete {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      .btn-delete:hover {
+        background-color: #af235b;
+        transform: scale(1.05);
+      }
+
+      .btn-edit, .btn-delete {
+        transition: all 0.3s ease;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      .btn-add {
+        background-color: #00fbff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 10px;
+      }
+
+      .btn-add:hover {
+        background-color: #bac7d4;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div>
+        <a href="registration.html">Home</a>
+        <a href="admission.html">Admissions</a>
+        <a href="alumni.html">Alumni</a>
+        <div class="dropdown">
+          <a href="">Achievements &#9662;</a>
+          <div class="dropdown-content">
+            <a href="achievement1.html">Achievement 1</a>
+            <a href="achievement2.html">Achievement 2</a>
+            <a href="achievement3.html">Achievement 3</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </div>
+      </div>
+      <a href="login.html" style="margin-left: auto;">Logout</a>
+    </div>
+
+    <div class="container">
+      <h1>Welcome to the School Management System</h1>
+      <p>Manage student records efficiently and effortlessly</p>
+
+      <div id="addStudentForm">
+        <div class="form-group">
+          <label for="studentName">Name</label>
+          <input type="text" id="studentName" placeholder="Enter student name" />
+        </div>
+
+        <div class="form-group">
+          <label for="studentAge">Age</label>
+          <input type="number" id="studentAge" placeholder="Enter student age" />
+        </div>
+
+        <div class="form-group">
+          <label for="studentSemester">Semester</label>
+          <input type="number" id="studentSemester" placeholder="Enter student semester" />
+        </div>
+
+        <div class="form-group">
+          <label for="studentRegNo">Registration Number</label>
+          <input type="text" id="studentRegNo" placeholder="Enter registration number" />
+        </div>
+
+        <button class="btn-add" onclick="addStudent()">Add Student</button>
+      </div>
+
+      <input type="text" id="searchBar" placeholder="Search by name..." />
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Semester</th>
+            <th>Registration Number</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="studentTable">
+          <tr>
+            <td>Asparsh</td>
+            <td>10</td>
+            <td>3</td>
+            <td>209876</td>
+            <td>
+              <button class="btn-edit" onclick="editRow(this)">Edit</button>
+              <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Ayush</td>
+            <td>43</td>
+            <td>6</td>
+            <td>238975</td>
+            <td>
+              <button class="btn-edit" onclick="editRow(this)">Edit</button>
+              <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      function addStudent() {
+        const name = document.getElementById("studentName").value;
+        const age = document.getElementById("studentAge").value;
+        const semester = document.getElementById("studentSemester").value;
+        const regNo = document.getElementById("studentRegNo").value;
+
+        if (name && age && semester && regNo) {
+          const table = document.getElementById("studentTable");
+
+          const row = table.insertRow();
+          row.innerHTML = `
+            <td>${name}</td>
+            <td>${age}</td>
+            <td>${semester}</td>
+            <td>${regNo}</td>
+            <td>
+              <button class="btn-edit" onclick="editRow(this)">Edit</button>
+              <button class="btn-delete" onclick="deleteRow(this)">Delete</button>
+            </td>
+          `;
+
+        
+          document.getElementById("studentName").value = "";
+          document.getElementById("studentAge").value = "";
+          document.getElementById("studentSemester").value = "";
+          document.getElementById("studentRegNo").value = "";
+        } else {
+          alert("Please fill in all fields.");
+        }
+      }
+
+      function editRow(button) {
+        const row = button.closest("tr");
+        const cells = row.querySelectorAll("td");
+
+        const name = cells[0].textContent;
+        const age = cells[1].textContent;
+        const semester = cells[2].textContent;
+        const regNo = cells[3].textContent;
+
+        const newName = prompt("Edit Name:", name);
+        const newAge = prompt("Edit Age:", age);
+        const newSemester = prompt("Edit Semester:", semester);
+        const newRegNo = prompt("Edit Registration Number:", regNo);
+
+        if (newName && newAge && newSemester && newRegNo) {
+          cells[0].textContent = newName;
+          cells[1].textContent = newAge;
+          cells[2].textContent = newSemester;
+          cells[3].textContent = newRegNo;
+        }
+      }
+
+      function deleteRow(button) {
+        const row = button.closest("tr");
+        if (confirm("Are you sure you want to delete this record?")) {
+          row.remove();
+        }
+      }
+
+      $(document).ready(function () {
+        $("#searchBar").on("input", function () {
+          const searchValue = $(this).val().toLowerCase();
+          $("#studentTable tr").filter(function () {
+            $(this).toggle(
+              $(this)
+                .find("td:first")
+                .text()
+                .toLowerCase()
+                .indexOf(searchValue) > -1
+            );
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
